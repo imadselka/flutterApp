@@ -9,30 +9,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int result = 1 + 1;
     return MaterialApp(
       debugShowCheckedModeBanner:
-          false, // to remove debug banner so annoying !!!
+          false, // to remove debug banner so annoying !!!8
       home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 243, 247, 185),
         appBar: AppBar(
           title: const Text('slm'),
-          backgroundColor: const Color.fromARGB(255, 29, 79, 119),
+          backgroundColor: Colors.yellow[200],
         ),
-        body: const Center(
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Hello, World!'),
-              SizedBox(
+              const Text('Hello, World!'),
+              const SizedBox(
                   height:
                       20), // Optional: Add some space between text and button
               ElevatedButton(
-                onPressed: null,
-                child: Text('Your Button Text'),
+                onPressed: () {
+                  Text(result.toString());
+                },
+                child: const Text('Press Me'),
               ),
             ],
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: const Color.fromARGB(255, 243, 247, 185),
           items: const [
             BottomNavigationBarItem(
               label: 'Like',
