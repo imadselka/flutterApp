@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: PageView(
           controller: _pageController,
+          scrollDirection: Axis.horizontal,
           onPageChanged: (index) {
             setState(() {
               currentIndex = index;
@@ -84,14 +85,14 @@ class _MyAppState extends State<MyApp> {
 
   List<Widget> _buildBody() {
     return [
-      SizedBox(
+      Container(
         width: double.infinity,
         height: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text('Home Page.'),
+            const Text('Hello, this is a text'),
             const SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -122,7 +123,15 @@ class _MyAppState extends State<MyApp> {
       ),
       Container(
         alignment: Alignment.center,
-        child: const Text('Audio content'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text('Audio content'),
+            const SizedBox(height: 20),
+            Image.asset('images/pic.jpg'),
+          ],
+        ),
       ),
       Container(
         alignment: Alignment.center,
