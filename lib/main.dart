@@ -129,7 +129,8 @@ class _MyAppState extends State<MyApp> {
           children: [
             const Text('Audio content'),
             const SizedBox(height: 20),
-            Image.asset('images/pic.jpg'),
+            Image.asset('images/pic.jpg',
+                width: 300, height: 300, fit: BoxFit.cover),
           ],
         ),
       ),
