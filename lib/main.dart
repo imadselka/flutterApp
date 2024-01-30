@@ -1,72 +1,133 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String buttonText = 'click me';
+  int currentIndex = 0;
+  PageController _pageController = PageController();
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    int result = 1 + 1;
     return MaterialApp(
-      debugShowCheckedModeBanner:
-          false, // to remove debug banner so annoying !!!8
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 243, 247, 185),
+        drawer:
+            const Drawer(backgroundColor: Color.fromARGB(255, 161, 206, 236)),
+        backgroundColor: const Color.fromARGB(255, 161, 206, 236),
         appBar: AppBar(
           title: const Text('slm'),
-          backgroundColor: Colors.yellow[200],
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 109, 146, 226),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Hello, World!'),
-              const SizedBox(
-                  height:
-                      20), // Optional: Add some space between text and button
-              ElevatedButton(
-                onPressed: () {
-                  Text(result.toString());
-                },
-                child: const Text('Press Me'),
-              ),
-            ],
-          ),
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          children: _buildBody(),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: const Color.fromARGB(255, 243, 247, 185),
+          backgroundColor: const Color.fromARGB(255, 161, 206, 236),
           items: const [
             BottomNavigationBarItem(
               label: 'Like',
               icon: Icon(
                 Icons.favorite,
-                color: Colors.pink,
-                size: 24.0,
-                semanticLabel: 'Text to announce in accessibility modes',
               ),
             ),
             BottomNavigationBarItem(
               label: 'Audio',
               icon: Icon(
                 Icons.audiotrack,
-                color: Color.fromARGB(255, 33, 158, 37),
-                size: 30.0,
-                semanticLabel: 'Audio track',
               ),
             ),
             BottomNavigationBarItem(
-                label: 'Settings',
-                icon: Icon(
-                  Icons.settings,
-                  size: 30.0,
-                  semanticLabel: 'Settings',
-                ))
+              label: 'Settings',
+              icon: Icon(
+                Icons.settings,
+              ),
+            ),
           ],
+          currentIndex: currentIndex,
+          onTap: (int index) {
+            setState(() {
+              currentIndex = index;
+              _pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            });
+          },
         ),
       ),
     );
+  }
+
+  List<Widget> _buildBody() {
+    return [
+      SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text('Home Page.'),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
+              ),
+              onPressed: () {
+                setState(() {
+                  buttonText = 'clicked';
+                });
+              },
+              child: Text(buttonText),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
+              ),
+              onPressed: () {
+                setState(() {
+                  buttonText = 'clicked';
+                });
+              },
+              child: Text(buttonText),
+            ),
+          ],
+        ),
+      ),
+      Container(
+        alignment: Alignment.center,
+        child: const Text('Audio content'),
+      ),
+      Container(
+        alignment: Alignment.center,
+        child: const Text('Settings content'),
+      ),
+    ];
   }
 }
