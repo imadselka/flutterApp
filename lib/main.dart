@@ -39,7 +39,12 @@ class _FirstpageState extends State<Firstpage> {
   int currentIndex = 0;
 
   final PageController _pageController = PageController();
+  final player = AudioPlayer();
   AudioPlayer audioPlayer = AudioPlayer();
+
+  Future<void> playAudioFromUrl(String url) async {
+    await player.play(UrlSource(url));
+  }
 
   @override
   void dispose() {
@@ -178,9 +183,17 @@ class _FirstpageState extends State<Firstpage> {
             Image.asset('images/pic.jpg',
                 width: 300, height: 300, fit: BoxFit.cover),
             ElevatedButton(
-              onPressed: playAudio,
+              onPressed: () {
+                playAudioFromUrl(
+                    'https://filesamples.com/samples/audio/mp3/Symphony%20No.6%20(1st%20movement).mp3');
+              },
               child: const Text('Play Audio'),
             ),
+            ElevatedButton(
+                onPressed: () {
+                  player.stop();
+                },
+                child: const Text('Stop Audio')),
           ],
         ),
       ),
@@ -189,17 +202,6 @@ class _FirstpageState extends State<Firstpage> {
         child: const Text('Settings content'),
       ),
     ];
-  }
-
-  playAudio() async {
-    int result = await audioPlayer
-        .play('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-    if (result == 1) {
-      // success
-      print('Audio played successfully');
-    } else {
-      print('Error playing audio');
-    }
   }
 }
 
