@@ -13,7 +13,7 @@ This project is a starting point for Flutter.
 - **`Add buttons`** : With styles.
 - **`Add Images`** : With styles.
 - **`Add Icons`** : With styles.
-- **`Drawer`** : For now not that match.
+- **`Drawer`** : For now not that much.
 
   ### This is a helpful code to swipe between tabs you need it:
 
