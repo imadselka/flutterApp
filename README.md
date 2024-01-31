@@ -53,4 +53,4 @@ To run the project in your local environment, follow these steps:
 
 # NOTE : YOU NEED AN EMULATOR.
 
-If you dont have an emulator or you are new make sure to check out fullter docs : https://docs.flutter.dev/get-started/install
+If you dont have an emulator or you are new make sure to check out flutter docs : https://docs.flutter.dev/get-started/install
