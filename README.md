@@ -6,14 +6,16 @@ A new Flutter project, where you will learn the basics.
 
 This project is a starting point for Flutter.
 
-- **`Widgets`** : What is a widget?, How to use it?.
-- **`AppBar`** : A simple title with background colors.
+- **`Widgets`** : What is a Widget?, How to use it?.
+- **`AppBar`** : A Simple Title with Background Colors.
 - **`Bottom Navigation Bar`** : With icons and semanticlabels.
-- **`swipe between tabs`** : This is so helpful, allows you to navigate between tabs.
-- **`Add buttons`** : With styles.
-- **`Add Images`** : With styles.
-- **`Add Icons`** : With styles.
-- **`Drawer`** : For now not that much.
+- **`swipe between tabs`** : This is so helpful, allows you to Navigate between Tabs.
+- **`Add buttons`** : With Styles.
+- **`Add Images`** : With Styles.
+- **`Add Icons`** : With Styles.
+- **`Drawer`** : Leading, Adding Icons and Styles.
+- **`Audio`** : Learned to Add Audio to the Pages.
+- **`Next Page`** : In this section i learned when u press a button u jump to a specific page, I had to Refactor the Code.
 
   ### This is a helpful code to swipe between tabs you need it:
 
