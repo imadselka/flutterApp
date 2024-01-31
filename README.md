@@ -15,7 +15,7 @@ This project is a starting point for Flutter.
 - **`Add Icons`** : With Styles.
 - **`Drawer`** : Leading, Adding Icons and Styles.
 - **`Audio`** : Learned to Add Audio to the Pages.
-- **`Next Page`** : In this section i learned when u press a button u jump to a specific page, I had to Refactor the Code.
+- **`Next Page`** : In this section i learned when u press a button u jump to a specific page, `I had to Refactor the Code`.
 
   ### This is a helpful code to swipe between tabs you need it:
 
